@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oliver Li</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#myself">OLIVER&nbsp;LI</a>
+    <nav class="nav">
+      <a href="#myself" class="tab-link active">Myself</a>
+      <a href="#investment" class="tab-link">Investment</a>
+      <a href="#penrose" class="tab-link">Penrose</a>
+    </nav>
+  </header>
+
+  <!-- Particle canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <main>
+    <!-- Myself page -->
+    <section id="myself" class="tab-content active">
+      <h1 data-fade>Builder, investor, student of systems.</h1>
+      <p data-fade>Economics & Computer Science. Interested in market microstructure, distressed credit, and human-in-the-loop AI.</p>
+      <h2 data-fade>Bio</h2>
+      <p data-fade>Replace with your actual bio text.</p>
+      <h2 data-fade>Interests</h2>
+      <ul data-fade>
+        <li>Distressed & special sits</li>
+        <li>Market structure</li>
+        <li>Computational finance</li>
+      </ul>
+      <h2 data-fade>Reading List</h2>
+      <p data-fade>Continuously updating notes…</p>
+    </section>
+
+    <!-- Investment page -->
+    <section id="investment" class="tab-content">
+      <h2>Investment Notes</h2>
+      <p>Content here (cards, theses, etc.).</p>
+    </section>
+
+    <!-- Penrose page -->
+    <section id="penrose" class="tab-content">
+      <div class="penrose-container">
+        <div class="penrose-shadow"></div>
+        <img src="assets/penrose-logo.png" alt="Penrose logo" class="penrose-animated" />
+        <canvas id="penroseParticles"></canvas>
+        <p>Paradox, perspective, conviction.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> Oliver Li</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

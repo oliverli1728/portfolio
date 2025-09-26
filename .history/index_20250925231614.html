@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oliver Li</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#myself">OLIVER&nbsp;LI</a>
+    <nav class="nav">
+      <a href="#myself" class="tab-link active">Myself</a>
+      <a href="#investment" class="tab-link">Investment</a>
+      <a href="#penrose" class="tab-link">Penrose</a>
+    </nav>
+  </header>
+
+  <!-- Particle canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <main>
+    <!-- Myself page -->
+    <section id="myself" class="tab-content active">
+      <section class="myself-block" data-fade>
+        <h1>Builder, investor, student of systems.</h1>
+        <p>Economics & Computer Science. Interested in market microstructure, distressed credit, and human-in-the-loop AI.</p>
+      </section>
+
+      <section class="myself-block" data-fade>
+        <h2>Bio</h2>
+        <p>Replace with your actual bio text.</p>
+      </section>
+
+      <section class="myself-block" data-fade>
+        <h2>Interests</h2>
+        <ul>
+          <li>Distressed & special sits</li>
+          <li>Market structure</li>
+          <li>Computational finance</li>
+        </ul>
+      </section>
+
+      <section class="myself-block" data-fade>
+        <h2>Reading List</h2>
+        <p>Continuously updating notes…</p>
+      </section>
+    </section>
+
+    <!-- Investment page -->
+    <section id="investment" class="tab-content investment-block" data-fade>
+    <h2>Investment Notes</h2>
+    <p>Content here (cards, theses, etc.).</p>
+    </section>
+
+    <!-- Penrose page -->
+        <div class="penrose-reading">
+        <li><i>The Myth of Creditor Sabotage</i> – Buccola, Mah & Zhang (U. Chicago L. Rev., 2020)</li>
+        <li><i>A Market-Based Study of the Cost of Default</i> – Davydenko, Strebulaev & Zhao (RFS, 2012)</li>
+        <li><i>How Costly is Financial (Not Economic) Distress?</i> – Andrade & Kaplan (Journal of Finance, 1998)</li>
+        <li><i>Coming Through in a Crisis</i> – Stuart Gilson (JACF, 2012)</li>
+        <li><i>Managing for Value 2.0</i> – Kaiser & Young (JACF, 2014)</li>
+        <li><i>The Hazards of Growth</i> – Kaiser & Young (JACF, 2015)</li>
+        <li><i>Strategies for Business Turnaround and Recovery</i> – Schoenberg, Collier & Bowman (European Business Review, 2013)</li>
+        <li><i>Antibankruptcy</i> – Baird & Rasmussen (Yale Law Journal, 2009–10)</li>
+        <li><i>Chapter 11: Not Perfect, But Better than the Alternatives</i> – Sprayregen et al. (J. Bankr. L. & Prac., 2005)</li>
+        <li><i>The Race to the Starting Line</i> – Sprayregen et al. (2010)</li>
+        <li><i>Need for Speed</i> – Brian K. Tester et al., ABI</li>
+        <li><i>Bankruptcy Court is Latest Battleground for Traders</i> – Spector & McGinty, WSJ (2010)</li>
+        <li><i>Rights Offerings in Bankruptcy: More than New Capital</i> – J. of Insolvency & Restructuring Advisors (2011)</li>
+        <li><i>Trends in Distressed Debt Investing</i> – Maryland Law Review</li>
+        </ul>
+
+        <h2 data-fade>4. Legal & Judicial Resources</h2>
+        <ul data-fade>
+        <li>U.S. Courts – <i>Chapter 11 Bankruptcy Basics</i> (online)</li>
+        <li>Hon. Christopher S. Sontchi – <i>Valuation Methodologies: A Judge’s View</i> (Am. Bankr. Inst. L. Rev., 2012)</li>
+        <li>James H.M. Sprayregen – Statements to ABI Commission on Chapter 11 Reform</li>
+        <li>Sample Plan of Reorganization & credit agreements (course materials)</li>
+        </ul>
+
+        <h2 data-fade>5. Cases</h2>
+        <ul data-fade>
+        <li><b>Wharton/Columbia/HBS Teaching Cases:</b> Bayfield Generators, Trump Entertainment Resorts, Caesars Entertainment Corp (CU65), Chrysler, Hertz, iHeart Media, J.Crew, Rossignol, Crisis at the Mill</li>
+        <li><b>External Cases:</b> Oaktree: Pierre Foods (HBS), CFA Institute Blog – <i>A Tale of Two Case Studies</i>, Private Credit Case Studies (Private Equity Bro), DD Talks – sector-specific cases</li>
+        </ul>
+
+        <h2 data-fade>6. Lecture Notes (Kevin Kaiser)</h2>
+        <ul data-fade>
+        <li>Advanced Company Valuation Summarized</li>
+        <li>The Costs of Financial Distress</li>
+        <li>Managing Financial Distress</li>
+        <li>Managing Distress</li>
+        </ul>
+
+        <h2 data-fade>7. Practitioner & Media Sources</h2>
+        <ul data-fade>
+        <li>Howard Marks – Oaktree memos (e.g., <i>The Illusion of Knowledge</i>)</li>
+        <li>Robert Sapolsky – Interview on Sean Carroll’s <i>Mindscape</i> podcast (YouTube)</li>
+        <li>Reuters – <i>The Energy Patch: Rights Offerings Are “Sexy” Again</i> (2017)</li>
+        <li>White & Case bio – Thomas Lauria (Chrysler case)</li>
+        <li>Monarch Alternative Capital bio – Michael Weinstock</li>
+        </ul>
+
+        <h2 data-fade>8. Supplementary / Optional</h2>
+        <ul data-fade>
+        <li><i>The Vulture Investors</i> – Hilary Rosenberg</li>
+        <li><i>US Distressed Investing: A Guide</i> – Chapman & Cutler LLP</li>
+        <li>Best Books for Financial Restructuring – Financial Edge Training</li>
+        <li>Wall Street Oasis & UF/Harvard curated book lists</li>
+        </ul>
+        </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> Oliver Li</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

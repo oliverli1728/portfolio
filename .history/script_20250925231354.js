@@ -1,7 +1,8 @@
 // Tab switching with deep-link support
 const tabs = document.querySelectorAll('.tab-link');
 const contents = document.querySelectorAll('.tab-content');
-
+// Add reading list to fade-in set
+const fadeEls = document.querySelectorAll('[data-fade]');
 
 function activateTab(id){
   tabs.forEach(t => t.classList.remove('active'));
@@ -51,7 +52,6 @@ window.addEventListener('resize', resize);
 resize();
 
 let angle = 0;
-// Add reading list to fade-in set
 const fadeEls = document.querySelectorAll('[data-fade]');
 
 function drawParticle(){

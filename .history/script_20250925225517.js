@@ -2,7 +2,6 @@
 const tabs = document.querySelectorAll('.tab-link');
 const contents = document.querySelectorAll('.tab-content');
 
-
 function activateTab(id){
   tabs.forEach(t => t.classList.remove('active'));
   contents.forEach(c => c.classList.remove('active'));
@@ -51,7 +50,6 @@ window.addEventListener('resize', resize);
 resize();
 
 let angle = 0;
-// Add reading list to fade-in set
 const fadeEls = document.querySelectorAll('[data-fade]');
 
 function drawParticle(){

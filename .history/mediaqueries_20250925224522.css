@@ -1,5 +1,5 @@
 @media (max-width: 900px){
-  .myself-block{ padding:0 8%; }
+  .panel{ margin:40px 12px; padding:24px; }
 }
 
 @media (max-width: 600px){

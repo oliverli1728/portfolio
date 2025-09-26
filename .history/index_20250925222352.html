@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Oliver Li</title>
+<meta name="description" content="Oliver Li — Myself · Investment · Penrose" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+<!-- Progress rail + particle (left edge) -->
+<div class="progress-rail" aria-hidden="true">
+<div class="progress-dot" id="progressDot"></div>
+</div>
+
+<!-- Header / Nav -->
+<header class="site-header">
+<a class="brand" href="#myself" aria-label="Home">OLIVER&nbsp;LI</a>
+
+<button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+
+<nav class="nav" id="nav">
+<a href="#myself" class="nav-link">Myself</a>
+<a href="#investment" class="nav-link">Investment</a>
+<a href="#penrose" class="nav-link">Penrose</a>
+</nav>
+</header>
+
+<!-- MAIN -->
+<main>
+<!-- MYSELF (landing) -->
+<section id="myself" class="section section--hero" data-rail>
+<div class="container hero-grid">
+<div class="hero-copy">
+<h1>Builder, investor, student of systems.</h1>
+<p class="lede">Economics & Computer Science. Interested in market microstructure, distressed credit, and human‑in‑the‑loop AI. This site evolves as I do.</p>
+<div class="cta-row">
+<a class="btn" href="#investment">Explore Investment Notes</a>
+<a class="btn btn--ghost" href="#reading">Reading List</a>
+</div>
+</div>
+<div class="hero-aside">
+<ul class="meta">
+<li><span>Current Focus</span><b>ECM prep • AI in classrooms • Liquidity micro‑themes</b></li>
+<li><span>Location</span><b>Princeton → Philadelphia</b></li>
+<li><span>Contact</span><b><a href="mailto:oliver@example.com">oliver@example.com</a></b></li>
+</ul>
+</div>
+</div>
+<div class="scroll-cue" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- MYSELF — Bio → Interests → Links (scrollable blocks) -->
+<section class="section section--stripe" data-rail>
+<div class="container split">
+<div>
+<h2>Bio</h2>
+<p>Short bio goes here. Keep it tight: what you study, build, and care about. One paragraph, two at most. Replace all placeholders freely.</p>
+</div>
+<div>
+<h2>Interests</h2>
+<ul class="pill-list">
+<li>Distressed & special sits</li><li>Market structure</li><li>Computational finance</li><li>Human‑computer collaboration</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section" data-rail>
+<div class="container">
+<h2 id="reading">Reading List</h2>
+</html>
+# Project Structure
+
+```
+.
+├── index.html
+├── style.css
+├── mediaqueries.css
+├── script.js
+└── assets/
+    └── penrose-logo.png   ← save your attached logo here (rename to this)
+```
+
+---
+
+## index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oliver Li</title>
+  <meta name="description" content="Oliver Li — Myself · Investment · Penrose" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+  <!-- Progress rail + particle (left edge) -->
+  <div class="progress-rail" aria-hidden="true">
+    <div class="progress-dot" id="progressDot"></div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <a class="brand" href="#myself" aria-label="Home">OLIVER&nbsp;LI</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#myself" class="nav-link">Myself</a>
+      <a href="#investment" class="nav-link">Investment</a>
+      <a href="#penrose" class="nav-link">Penrose</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <!-- MYSELF (landing) -->
+    <section id="myself" class="section section--hero" data-rail>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Builder, investor, student of systems.</h1>
+          <p class="lede">Economics & Computer Science. Interested in market microstructure, distressed credit, and human‑in‑the‑loop AI. This site evolves as I do.</p>
+          <div class="cta-row">
+            <a class="btn" href="#investment">Explore Investment Notes</a>
+            <a class="btn btn--ghost" href="#reading">Reading List</a>
+          </div>
+        </div>
+        <div class="hero-aside">
+          <ul class="meta">
+            <li><span>Current Focus</span><b>ECM prep • AI in classrooms • Liquidity micro‑themes</b></li>
+            <li><span>Location</span><b>Princeton → Philadelphia</b></li>
+            <li><span>Contact</span><b><a href="mailto:oliver@example.com">oliver@example.com</a></b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">Scroll</div>
+    </section>
+
+    <!-- MYSELF — Bio → Interests → Links (scrollable blocks) -->
+    <section class="section section--stripe" data-rail>
+      <div class="container split">
+        <div>
+          <h2>Bio</h2>
+          <p>Short bio goes here. Keep it tight: what you study, build, and care about. One paragraph, two at most. Replace all placeholders freely.</p>
+        </div>
+        <div>
+          <h2>Interests</h2>
+          <ul class="pill-list">
+            <li>Distressed & special sits</li><li>Market structure</li><li>Computational finance</li><li>Human‑computer collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-rail>
+      <div class="container">
+        <h2 id="reading">Reading List</h2>
+        <p class="muted">Continuously updating notes; most recent first.</p>
+        <div class="cards">
+          <!-- Duplicate/replace cards as you add items -->
+          <article class="card">
+            <header>
+              <h3>Distressed Debt Analysis — Moyer</h3>
+              <span class="badge">Book</span>
+            </header>
+            <p>Notes on waterfall priorities, plan value, and post‑reorg equity selection.</p>
+            <footer>
+              <a href="#" class="text-link">Notes (markdown)</a>
+            </footer>
+          </article>
+          <article class="card">
+            <header>
+              <h3>Equity TRS — pricing intuition</h3>
+              <span class="badge">Brief</span>
+            </header>
+            <p>r terms wash out under Q; value moves with dividend yield and spread.</p>
+            <footer>
+              <a href="#" class="text-link">Read</a>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTMENT -->
+    <section id="investment" class="section section--panel" data-rail>
+      <div class="container">
+        <header class="section-head">
+          <h2>Investment</h2>
+          <p class="muted">Selected theses, dashboards, and visual notes.</p>
+        </header>
+
+        <div class="grid-3">
+          <a class="panel" href="#" aria-label="Woodward Thesis">
+            <h3>Woodward (WWD)</h3>
+            <p>Margin dynamics, FCF flywheel, hydrogen valves optionality.</p>
+          </a>
+          <a class="panel" href="#" aria-label="Ryman Hospitality">
+            <h3>Ryman Hospitality (RHP)</h3>
+            <p>Group travel convexity & TLB structure; Block 21 CMBS notes.</p>
+          </a>
+          <a class="panel" href="#" aria-label="Baldwin Insurance Group">
+            <h3>Baldwin (BRP)</h3>
+            <p>MGA/captive structures, integration cadence, cash conversion.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PENROSE -->
+    <section id="penrose" class="section section--penrose" data-rail>
+      <div class="container penrose-wrap">
+        <img src="assets/penrose-logo.png" alt="Penrose triangle logo" class="penrose-logo" />
+        <div class="penrose-copy">
+          <h2>Penrose</h2>
+          <p>A study in paradox and perspective. Notes on design, conviction, and building deceptively simple systems.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <span>© <span id="year"></span> Oliver Li</span>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/oliverli1728/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://substack.com/@oliver1728" target="_blank" rel="noopener">Substack</a>
+        <a href="mailto:oliver@example.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

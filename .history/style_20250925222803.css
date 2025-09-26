@@ -1,0 +1,20 @@
+/* Tabs */
+.tab-content{ display:none; min-height:100vh; padding:80px 20px; }
+.tab-content.active{ display:block; }
+.tab-link.active{ color:var(--accent); }
+
+/* Particle center track */
+.particle-track{ position:fixed; top:0; left:50%; width:2px; height:100%; background:linear-gradient(var(--rail), transparent); z-index:0; transform:translateX(-50%); }
+.particle{ position:fixed; left:50%; top:20vh; width:16px; height:16px; border-radius:50%; background:radial-gradient(circle at 30% 30%, #b7ffd8, var(--accent)); box-shadow:0 0 20px rgba(26,183,116,.7); transform:translate(-50%,0); }
+
+/* Fade-in panels */
+[data-fade]{ opacity:0; transform:translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+[data-fade].in-view{ opacity:1; transform:none; }
+
+.panel{ margin:80px auto; max-width:800px; background:var(--elev); padding:40px; border-radius:var(--radius); box-shadow:var(--shadow); }
+
+/* Penrose animation */
+.penrose-container{ display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; }
+.penrose-animated{ width:320px; animation: float 5s ease-in-out infinite, rotate 30s linear infinite; }
+@keyframes float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-20px); } }
+@keyframes rotate{ 0%{ transform:rotate(0deg); } 100%{ transform:rotate(360deg); } }

@@ -2,7 +2,6 @@
 const tabs = document.querySelectorAll('.tab-link');
 const contents = document.querySelectorAll('.tab-content');
 
-
 function activateTab(id){
   tabs.forEach(t => t.classList.remove('active'));
   contents.forEach(c => c.classList.remove('active'));
@@ -38,7 +37,7 @@ window.addEventListener('popstate', () => {
   activateTab(hash);
 });
 
-// Main particle: organic motion + glow illumination
+// Main particle system that illuminates text
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 let width, height;
@@ -50,50 +49,30 @@ function resize(){
 window.addEventListener('resize', resize);
 resize();
 
-let angle = 0;
-// Add reading list to fade-in set
-const fadeEls = document.querySelectorAll('[data-fade]');
-
 function drawParticle(){
   ctx.clearRect(0,0,width,height);
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const pct = docHeight > 0 ? scrollTop / docHeight : 0;
+  const trackHeight = height - 160;
+  const y = 80 + pct * trackHeight;
+  const x = width/2 + Math.sin(pct * Math.PI * 2) * 120;
 
-  const baseY = pct * (height - 200) + 100;
-  angle += 0.02;
-  const x = width/2 + (Math.sin(angle*1.3)+Math.sin(angle*0.7))*60;
-  const y = baseY + Math.sin(angle*0.5)*40;
-
-  // Glow gradient
-  const gradient = ctx.createRadialGradient(x,y,0,x,y,180);
+  // glow that fades in text
+  const gradient = ctx.createRadialGradient(x,y,0,x,y,160);
   gradient.addColorStop(0,'rgba(26,183,116,0.25)');
   gradient.addColorStop(1,'rgba(0,0,0,0)');
+
   ctx.fillStyle = gradient;
   ctx.fillRect(0,0,width,height);
 
-  // Core particle
+  // central particle
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI*2);
   ctx.fillStyle = 'rgba(183,255,216,0.9)';
   ctx.shadowColor = 'rgba(26,183,116,0.8)';
   ctx.shadowBlur = 25;
   ctx.fill();
-
-  // Illuminate text elements based on distance
-  fadeEls.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    const elX = rect.left + rect.width/2;
-    const elY = rect.top + rect.height/2;
-    const dx = (elX - x);
-    const dy = (elY - y);
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    if(dist < 260){
-      el.classList.add('lit');
-    } else {
-      el.classList.remove('lit');
-    }
-  });
 }
 
 function animate(){
@@ -102,7 +81,16 @@ function animate(){
 }
 animate();
 
-// Penrose particles emitter with organic drift
+// Fade-in on scroll
+const faders = document.querySelectorAll('[data-fade]');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('in-view');
+  });
+},{ threshold:0.2 });
+faders.forEach(el => io.observe(el));
+
+// Penrose particles emitter
 const penroseCanvas = document.getElementById('penroseParticles');
 if(penroseCanvas){
   const pctx = penroseCanvas.getContext('2d');
@@ -112,22 +100,20 @@ if(penroseCanvas){
 
   const particles=[];
   function spawnParticle(){
-    particles.push({x:pw/2, y:ph/2, vx:(Math.random()-0.5)*1.2, vy:-Math.random()*2-0.5, life:120});
+    particles.push({x:pw/2, y:ph/2, vx:(Math.random()-0.5)*1, vy:-Math.random()*1.5-0.5, life:100});
   }
 
   function drawPenrose(){
     pctx.clearRect(0,0,pw,ph);
     particles.forEach((p,i)=>{
-      p.x+=p.vx + Math.sin(p.life*0.1)*0.3;
-      p.y+=p.vy;
-      p.life--;
+      p.x+=p.vx; p.y+=p.vy; p.life--;
       pctx.beginPath();
       pctx.arc(p.x,p.y,2,0,Math.PI*2);
-      pctx.fillStyle=`rgba(26,183,116,${p.life/120})`;
+      pctx.fillStyle=`rgba(26,183,116,${p.life/100})`;
       pctx.fill();
       if(p.life<=0) particles.splice(i,1);
     });
-    if(Math.random()<0.4) spawnParticle();
+    if(Math.random()<0.3) spawnParticle();
     requestAnimationFrame(drawPenrose);
   }
   drawPenrose();

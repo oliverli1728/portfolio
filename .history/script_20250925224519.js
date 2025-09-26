@@ -2,7 +2,6 @@
 const tabs = document.querySelectorAll('.tab-link');
 const contents = document.querySelectorAll('.tab-content');
 
-
 function activateTab(id){
   tabs.forEach(t => t.classList.remove('active'));
   contents.forEach(c => c.classList.remove('active'));
@@ -51,9 +50,6 @@ window.addEventListener('resize', resize);
 resize();
 
 let angle = 0;
-// Add reading list to fade-in set
-const fadeEls = document.querySelectorAll('[data-fade]');
-
 function drawParticle(){
   ctx.clearRect(0,0,width,height);
   const scrollTop = window.scrollY;
@@ -65,35 +61,18 @@ function drawParticle(){
   const x = width/2 + (Math.sin(angle*1.3)+Math.sin(angle*0.7))*60;
   const y = baseY + Math.sin(angle*0.5)*40;
 
-  // Glow gradient
   const gradient = ctx.createRadialGradient(x,y,0,x,y,180);
   gradient.addColorStop(0,'rgba(26,183,116,0.25)');
   gradient.addColorStop(1,'rgba(0,0,0,0)');
   ctx.fillStyle = gradient;
   ctx.fillRect(0,0,width,height);
 
-  // Core particle
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI*2);
   ctx.fillStyle = 'rgba(183,255,216,0.9)';
   ctx.shadowColor = 'rgba(26,183,116,0.8)';
   ctx.shadowBlur = 25;
   ctx.fill();
-
-  // Illuminate text elements based on distance
-  fadeEls.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    const elX = rect.left + rect.width/2;
-    const elY = rect.top + rect.height/2;
-    const dx = (elX - x);
-    const dy = (elY - y);
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    if(dist < 260){
-      el.classList.add('lit');
-    } else {
-      el.classList.remove('lit');
-    }
-  });
 }
 
 function animate(){
@@ -101,6 +80,15 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
+
+// Fade-in on scroll
+const faders = document.querySelectorAll('[data-fade]');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('in-view');
+  });
+},{ threshold:0.2 });
+faders.forEach(el => io.observe(el));
 
 // Penrose particles emitter with organic drift
 const penroseCanvas = document.getElementById('penroseParticles');
